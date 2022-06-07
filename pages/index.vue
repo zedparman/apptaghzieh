@@ -1,9 +1,15 @@
 <template>
-  <Tutorial/>
+  <div>
+    <h1>خانه</h1>
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'IndexPage'
-}
+  export default {
+    
+  }
 </script>
+
+<style scoped>
+
+</style>
