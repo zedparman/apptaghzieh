@@ -3,23 +3,27 @@
     <h4>مشاده سوالات مربوط به یک رژیم با ارسال آی دی رژیم در نوارد ادرس   14</h4>
 
 
-    <ul>
-      <li v-for="doc in docs" :key="doc.id" class="d-flex">
-        <!-- <h1>{{ docs.data.data.mobile }}</h1> -->
-        <p class="m-2">{{ doc.title_question }}</p><br>
-        <!-- <p class="m-2">{{ doc.options_question }}</p> -->
-      </li>
-    </ul>  
 
+  <form @submit.prevent="getDoc">
+    <input type="text" v-model="title_program_id">
+    <button type="subnit">submit</button>
+  </form>
+  <div v-for="doc in docs.data" :key="doc.id">
+    {{ doc.title_program_id }}
+    {{ doc.title_question }}
+  </div>
 
   </div>
 </template>
 
 <script>
+import questioncomponent from './questioncomponent.vue';
 export default {
+  components: { questioncomponent },
   data() {
     return {
-      docs: []
+      docs: [],
+      "title_program_id": ""
     };
   },
   mounted() {
@@ -28,15 +32,14 @@ export default {
   methods: {
     async getDoc() {
       let res = await this.$axios.get(
-        "http://95.217.96.131:8080/api/admin/index-question/37",
+        `http://95.217.96.131:8080/api/admin/index-question/${this.title_program_id}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         }
       );
-            this.docs = res.data.data;
-            console.log(res.data);
+            this.docs = res.data;
     },
   },
 }
