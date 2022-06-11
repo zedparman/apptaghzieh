@@ -1,7 +1,13 @@
 <template>
     <div class="container my-4">
-      <h4>درج سوالات تخصصی  تایتل پروگرم آیدی مربوط به ایندگس تایتل پروگرم   ایز نسسری  0 اجباری 1 اختیاری   ایز دیوریشن سوالات دوره ای هست یا نیست0 اجباری  1 اختیاری   13</h4>
+      <h4>ویرایش پرسش ها</h4>
         <form @submit="handlePhoneNumber">
+          <input
+            type="text"
+            class="form-control mb-2"
+            v-model="question_id"
+            placeholder="question_id"
+          />
           <input
             type="text"
             class="form-control mb-2"
@@ -29,8 +35,8 @@
           <input
             type="text"
             class="form-control mb-2"
-            v-model="is_public"
-            placeholder="is_public"
+            v-model="photo1"
+            placeholder="photo1"
           />
           <input
             type="text"
@@ -48,21 +54,42 @@
         </form>
 
 
+
+
+        <div v-for="doc in docss.data" :key="doc.id" class="d-flex">
+            <!-- <button @click="$emit('confirmdoc', doc.expert_id, doc.result)">x</button> -->
+            <!-- <p class="m-2">{{ doc }}</p> -->
+            <p class="m-2">{{ doc.title_program_id }}</p>
+            <p class="m-2">{{ doc.title_question }}</p>
+            <p class="m-2">{{ doc.options_question }}</p>
+            <p class="m-2">{{ doc.title_program_id }}</p>
+            <p class="m-2">{{ doc.updated_at }}</p>
+            <!-- <h4>{{ doc.expert_id }}</h4> -->
+            <!-- <p class="m-2">{{ doc.description }}</p>
+            <p class="m-2">{{ doc.result }}</p> -->
+        </div>
+
+    <editquestioncomponent :docsss="docss.data"/>
+
     </div>
 </template>
 
 <script>
+import editquestioncomponent from '@/components/admin/titleprogram/indexandedit/question/editquestioncomponent.vue';
 import axios from "axios";
-
 export default {
-
+  components: {
+    editquestioncomponent,
+  },
+  props: ['docss'],
   data() {
     return {
+      question_id: "",
       title_program_id: "",
       title_question: "",
       options_question: "",
       type_of_question: "",
-      is_public: "",
+      photo1: "",
       is_necessary: "",
       is_duration: ""
     };
@@ -70,12 +97,13 @@ export default {
   methods: {
     async handlePhoneNumber() {
       try {
-        let response = await axios.post("http://95.217.96.131:8080/api/admin/insert-question", {
+        let response = await axios.post("http://95.217.96.131:8080/api/admin/edit-question", {
+        question_id: this.question_id,
         title_program_id: this.title_program_id,
         title_question: this.title_question,
         options_question: this.options_question,
         type_of_question: this.type_of_question,
-        is_public: this.is_public,
+        photo1: this.photo1,
         is_necessary: this.is_necessary,
         is_duration: this.is_duration
       },

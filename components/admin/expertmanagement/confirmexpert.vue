@@ -1,34 +1,38 @@
 <template>
-  <div class="container my-4">
-    <h4>تایید یا غیرفعال سازی کارشناس  0 غیر فعال  و 1 فعال06</h4>
-    <form @submit.prevent="handlePhoneNumber">
-      <input
-        type="text"
-        class="form-control mb-2"
-        v-model="expert_id"
-        placeholder="expert_id"
-      />
-      <input
-        type="text"
-        class="form-control mb-2"
-        v-model="active"
-        placeholder="active"
-      />
-      <input class="btn btn-primary w-100" type="submit" value="submit" />
-    </form>
-  <indexexpert />
-  <indexexpertnew />
+  <div class="container my-4 d-flex">
+    <div class="second">
+      <indexexpert />
+    </div>
+    <div class="first m-4 p-4">
+      <h4>تایید یا غیرفعال سازی کارشناس 0 غیر فعال و 1 فعال06</h4>
+      <form @submit="handlePhoneNumber">
+        <input
+          type="text"
+          class="form-control mb-2"
+          v-model="expert_id"
+          placeholder="expert_id"
+        />
+        <input
+          type="text"
+          class="form-control mb-2"
+          v-model="active"
+          placeholder="active"
+        />
+        <input class="btn btn-primary w-100" type="submit" value="submit" />
+      </form>
+      <indexexpertnew class="mt-4"/>
+    </div>
     <!-- <h1>{{sendid}}</h1> -->
     <!-- <div v-for="doc in docs" :key="doc.id">
       {{ doc }}
     </div> -->
-      <!-- {{ sendi }} -->
+    <!-- {{ sendi }} -->
   </div>
 </template>
 
 <script>
-import indexexpert from '@/components/admin/expertmanagement/indexexpert.vue';
-import indexexpertnew from '@/components/admin/expertmanagement/indexexpertnew.vue';
+import indexexpert from "@/components/admin/expertmanagement/indexexpert.vue";
+import indexexpertnew from "@/components/admin/expertmanagement/indexexpertnew.vue";
 import axios from "axios";
 export default {
   components: {

@@ -13,17 +13,21 @@
     {{ doc.title_question }}
   </div>
 
+    <editquestion :docss="docs"/>
+
   </div>
 </template>
 
 <script>
 import questioncomponent from './questioncomponent.vue';
+import editquestion from './editquestion.vue';
 export default {
   components: { questioncomponent },
+  components: { editquestion },
   data() {
     return {
       docs: [],
-      "title_program_id": ""
+      "title_program_id": "37",
     };
   },
   mounted() {
@@ -39,7 +43,8 @@ export default {
           },
         }
       );
-            this.docs = res.data;
+            this.docs = res;
+            console.log("res: ", res)
     },
   },
 }

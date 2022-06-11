@@ -2,13 +2,26 @@
   <div class="expertlist border border-success mb-5 p-3 px-5">
     <div id="first">
       <h4>مشاهده کلیه کارشناسان  04</h4>
-      <ul>
-        <li v-for="doc in docs" :key="doc.id"  class="d-flex"  :class="{inactive:!doc.is_active}">
-          <input type="checkbox" @change="markComplete" class="m-3"><p class="m-2">{{ doc.id }}</p>
+      <!-- <ul> -->
+        <!-- <li v-for="doc in docs" :key="doc.id"  class="d-flex"  :class="{inactive:!doc.is_active}">
+          <input type="checkbox" @change="markComplete" class="m-3"><p class="m-2">{{ doc.id }}</p> -->
+        <!-- <li v-for="doc in docs" :key="doc.id"  class="d-flex"  >
+          <input type="checkbox"  class="m-3"><p class="m-2">{{ doc.id }}</p>
           <p class="m-2">{{ doc.name }}</p>
           <p class="m-2">{{ doc.id }}</p>
           <p class="m-2">{{ doc.is_active }}</p>
           <button @click="$emit('doc-del', doc.id, doc.is_active)">x</button>
+        </li> -->
+      <!-- </ul> -->
+      <ul>
+        <!-- <li v-for="doc in docs" :key="doc.id"  class="d-flex"  :class="{inactive:!doc.is_active}">
+          <input type="checkbox" @change="markComplete" class="m-3"><p class="m-2">{{ doc.id }}</p> -->
+        <li v-for="doc in docs" :key="doc.id"  class="d-flex"  >
+          <!-- <input type="checkbox"  class="m-3"><p class="m-2">{{ doc.id }}</p> -->
+          <p class="m-3">{{ doc.id }}</p>
+          <p class="m-3">{{ doc.name }}</p>
+          <p class="m-3">{{ doc.is_active }}</p>
+          <!-- <button @click="$emit('doc-del', doc.id, doc.is_active)">x</button> -->
         </li>
       </ul>
     </div>

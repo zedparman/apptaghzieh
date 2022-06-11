@@ -1,7 +1,7 @@
 <template>
   <div class="container my-4">
     <h4>ویرایش عنوان رژیم12</h4>
-    <form @submit.prevent="handlePhoneNumber">
+    <form @submit="handlePhoneNumber">
       <input
         type="text"
         class="form-control mb-2"

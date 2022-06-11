@@ -19,7 +19,7 @@
       <div class="second">
         <div class="my-4">
       <h4>درج عنوان رژیم جدید 0 یعنی اتوماتیک 1 یعنی دستی 10</h4>
-      <form @submit.prevent="handlePhoneNumber">
+      <form @submit="handlePhoneNumber">
         <input
           type="text"
           class="form-control mb-2"

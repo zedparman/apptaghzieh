@@ -5,7 +5,7 @@
     </div>
     <div class="my-4 second">
       <p>تایید یا رد درخواست کارشناس مبنی بر آنلاین و یا آفلاین بودن</p>
-      <form @submit.prevent="handlePhoneNumber">
+      <form @submit="handlePhoneNumber">
         <input
           type="text"
           class="form-control mb-2"
